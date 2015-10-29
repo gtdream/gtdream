@@ -1,24 +1,24 @@
 /**
  *   com.coupang.WEBAPP003.setin.product.ProductData.java
  *
- * µî·ÏµÈ »óÇ° µ¥ÀÌÅÍ 
- * @author ÄíÆÎ °³¹ßÀÚ ÃÖµÎ¼®     
+ * ë“±ë¡ëœ ìƒí’ˆ ë°ì´í„° 
+ * @author ì¿ íŒ¡ ê°œë°œì ìµœë‘ì„     
  * @since 2013. 09. 17.
  * @version 1.0
  * @see
  *
  * <pre>
- * ================== °³Á¤ÀÌ·Â ================
+ * ================== ê°œì •ì´ë ¥ ================
  *
- *  ¼öÁ¤ÀÏ      ¼öÁ¤ÀÚ    ¼öÁ¤³»¿ë
+ *  ìˆ˜ì •ì¼      ìˆ˜ì •ì    ìˆ˜ì •ë‚´ìš©
  * ----------  --------  ---------------------------
- * 2013. 09. 17.       ÃÖµÎ¼®    ÃÖÃÊÀÛ¼º
+ * 2013. 09. 17.       ìµœë‘ì„    ìµœì´ˆì‘ì„±
  *
  * </pre>
  */
 
 /**
- * @author ÃÖµÎ¼®
+ * @author ìµœë‘ì„
  * 
  */
 package chosung;
@@ -27,31 +27,31 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ProductData {
-
+	//ê³µë°±32	
 	private List<Product> productList = new ArrayList<Product>();
 
 	public ProductData() {
 
-		productList.add(new Product("24771911", "KFC Ä¡Å²ºÒ°í±â ÄŞº¸", 2600, 27));
-		productList.add(new Product("24756487", "¼Ò´Ù/Ä«½Ã¿ÀÆĞ¼Ç½ºÆ÷Ã÷½Ã°è", 49800, 2));
-		productList.add(new Product("24750911", "[¸ñµ¿] À°°¨½¡ºÒ±¸ÀÌ", 21600, 4));
-		productList.add(new Product("24718904", "[Á¤ÀÚ] ¹ÚÁ¾ÀÏ ÇÁ·ÎÇì¾î", 29000, 1));
-		productList.add(new Product("24703223", "[±¸·ÎµğÁöÅĞ] LA½Ä´ç", 30000, 29));
-		productList.add(new Product("24702630", "°í·ÁÈ«»ï¸í°¡ ¸í±âÈ«»ïÁ¤", 65300, 1));
-		productList.add(new Product("24692301", "ÄíÄí ¾Ğ·Â¹ä¼Ó", 21000, 2));
-		productList.add(new Product("24671273", "³ªÀÌÅ° BEST ·±´×È­ 22Á¾", 45000, 20));
-		productList.add(new Product("24670532", "Åõ¼¼ºì ÀÚÃ¼Á¦ÀÛF/W½Å»ó½´Áî", 34900, 2));
-		productList.add(new Product("24669991", "°¡À»¸ÂÀÌ ¸ğ´øÅ¥Æ®·ÎÆÛ/ÇÃ·§", 17900, 9));
-		productList.add(new Product("24669702", "Æ®·ç¸±¸®Á¯ ÇÁ¸®¹Ì¾ö½º´ÏÄ¿Áî", 37500, 1));
-		productList.add(new Product("24667948", "³ªÀÌÅ° ³²³à ÆÒÃ÷ ¸ğÀ½Àü", 49000, 1));
-		productList.add(new Product("24664912", "Ãà±¸/³ó±¸/¹è±¸ °ø¸ğÀ½Àü", 14000, 6));
-		productList.add(new Product("24661322", "ÄğÁ¦ÀÌ °¡À»½Å»óÆ®·£µğ¼ÅÃ÷", 19800, 2));
-		productList.add(new Product("24660422", "µµµå¶÷Æ÷Å© µÅÁö°¥ºñ", 5400, 1));
-		productList.add(new Product("24659696", "[ÈÄÄí¿ÀÄ«]ÀÚÀ¯¿©Çà 3ÀÏ189000", 189000,1));
-		productList.add(new Product("24659141", "HK CLA´ÙÀÌ¾îÆ®", 29700, 1));
-		productList.add(new Product("24654726", "[Ã»´ã] ¹ÎÇÑº¹", 350000, 15));
-		productList.add(new Product("24654255", "[µ¿´ë¹®] ¾Ö´ÏÇÇºÎ", 15000, 4));
-		productList.add(new Product("24651025", "¿µÁø Ç¥°í¹ö¼¸ ½½¶óÀÌ½º1kg", 18500, 2));
+		productList.add(new Product("24771911", "KFC ì¹˜í‚¨ë¶ˆê³ ê¸° ì½¤ë³´", 2600, 27));
+		productList.add(new Product("24756487", "ì†Œë‹¤/ì¹´ì‹œì˜¤íŒ¨ì…˜ìŠ¤í¬ì¸ ì‹œê³„", 49800, 2));
+		productList.add(new Product("24750911", "[ëª©ë™] ìœ¡ê°ìˆ¯ë¶ˆêµ¬ì´", 21600, 4));
+		productList.add(new Product("24718904", "[ì •ì] ë°•ì¢…ì¼ í”„ë¡œí—¤ì–´", 29000, 1));
+		productList.add(new Product("24703223", "[êµ¬ë¡œë””ì§€í„¸] LAì‹ë‹¹", 30000, 29));
+		productList.add(new Product("24702630", "ê³ ë ¤í™ì‚¼ëª…ê°€ ëª…ê¸°í™ì‚¼ì •", 65300, 1));
+		productList.add(new Product("24692301", "ì¿ ì¿  ì••ë ¥ë°¥ì†", 21000, 2));
+		productList.add(new Product("24671273", "ë‚˜ì´í‚¤ BEST ëŸ°ë‹í™” 22ì¢…", 45000, 20));
+		productList.add(new Product("24670532", "íˆ¬ì„¸ë¸ ìì²´ì œì‘F/Wì‹ ìƒìŠˆì¦ˆ", 34900, 2));
+		productList.add(new Product("24669991", "ê°€ì„ë§ì´ ëª¨ë˜ííŠ¸ë¡œí¼/í”Œë«", 17900, 9));
+		productList.add(new Product("24669702", "íŠ¸ë£¨ë¦´ë¦¬ì ¼ í”„ë¦¬ë¯¸ì—„ìŠ¤ë‹ˆì»¤ì¦ˆ", 37500, 1));
+		productList.add(new Product("24667948", "ë‚˜ì´í‚¤ ë‚¨ë…€ íŒ¬ì¸  ëª¨ìŒì „", 49000, 1));
+		productList.add(new Product("24664912", "ì¶•êµ¬/ë†êµ¬/ë°°êµ¬ ê³µëª¨ìŒì „", 14000, 6));
+		productList.add(new Product("24661322", "ì¿¨ì œì´ ê°€ì„ì‹ ìƒíŠ¸ëœë””ì…”ì¸ ", 19800, 2));
+		productList.add(new Product("24660422", "ë„ë“œëŒí¬í¬ ë¼ì§€ê°ˆë¹„", 5400, 1));
+		productList.add(new Product("24659696", "[í›„ì¿ ì˜¤ì¹´]ììœ ì—¬í–‰ 3ì¼189000", 189000,1));
+		productList.add(new Product("24659141", "HK CLAë‹¤ì´ì–´íŠ¸", 29700, 1));
+		productList.add(new Product("24654726", "[ì²­ë‹´] ë¯¼í•œë³µ", 350000, 15));
+		productList.add(new Product("24654255", "[ë™ëŒ€ë¬¸] ì• ë‹ˆí”¼ë¶€", 15000, 4));
+		productList.add(new Product("24651025", "ì˜ì§„ í‘œê³ ë²„ì„¯ ìŠ¬ë¼ì´ìŠ¤1kg", 18500, 2));
 
 	}
 

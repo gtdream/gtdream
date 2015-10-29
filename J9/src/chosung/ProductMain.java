@@ -1,49 +1,34 @@
 package chosung;
 
-import java.util.List;
+import java.util.ArrayList;
+import java.util.Scanner;
 
 public class ProductMain {
 	public static void main(String[] args) {
-		ProductData data = new ProductData();
-		
-		List<Product> list = data.getProductList();
-		
-		String search = "[¤¡¤©";
-		
-		for(int i=0; i<list.size(); i++){
-			String str = ChosongSearch.convertName(list.get(i).getName());
-//			System.out.println(str);
-			if(str.contains(search)){
-				System.out.println("search:"+search+"\n"+list.get(i).getName());
-			}
-			
-		}
-	}
-	
-}
-/*
- * 
-KFC ¤º¤»¤²¤¡¤¡ ¤»¤²
-¤µ¤§/¤»¤µ¤·¤½¤µ¤µ¤½¤º¤µ¤¡
-[¤±¤§] ¤·¤¡¤µ¤²¤¡¤·
-[¤¸¤¸] ¤²¤¸¤· ¤½¤©¤¾¤·
-[¤¡¤©¤§¤¸¤¼] LA¤µ¤§
-¤¡¤©¤¾¤µ¤±°¡ ¤±¤¡¤¾¤µ¤¸
-¤»¤» ¤·¤©¤²¤µ
-¤¤¤·¤» BEST ¤©¤¤¤¾ 22¤¸
-¤¼¤µ¤² ¤¸¤º¤¸¤¸F/W¤µ¤µ¤µ¤¸
-°¡¤·¤±¤· ¤±¤§¤»¤¼¤©¤½/¤½¤©
-¤¼¤©¤©¤©¤¸ ¤½¤©¤±¤·¤µ¤¤¤»¤¸
-¤¤¤·¤» ¤¤¤¤ ¤½¤º ¤±¤·¤¸
-¤º¤¡/¤¤¤¡/¤²¤¡ ¤¡¤±¤·¤¸
-¤»¤¸¤· °¡¤·¤µ¤µ¤¼¤©¤§¤µ¤º
-¤§¤§¤©¤½¤» ¤§¤¸¤¡¤²
-[¤¾¤»¤·¤»]¤¸¤·¤·¤¾ 3¤·189000
-HK CLA¤§¤·¤·¤¼
-[¤º¤§] ¤±¤¾¤²
-[¤§¤§¤±] ¤·¤¤¤½¤²
-¤·¤¸ ¤½¤¡¤²¤µ ¤µ¤©¤·¤µ1kg
+		while (true) {
+			// Scanner s = new Scanner(System.in);
+			// System.out.print("ì´ˆì„±ì„ ì“°ì‹œì˜¤ :");
+			// String scanstr = s.nextLine();
 
- * 
- * 
- */
+			ProductData data = new ProductData();
+
+			ArrayList<Product> list = (ArrayList<Product>) data.getProductList();
+			String scanstr = "/ã…‹";
+			String str = Chosung.chosungNFKC(scanstr);
+
+			for (int i = 0; i < list.size(); i++) {
+				String name = list.get(i).getProductName();
+
+				String cho = Chosung.chosungNFD(name);
+
+				if (cho.contains(str)) {
+					System.out.println("ì´ˆì„±(" + str + ")--------------->" + name);
+				}
+			} // for end
+			
+			break;
+			
+		} // while end
+	}// main end
+
+}

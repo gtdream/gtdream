@@ -1,172 +1,131 @@
 package chosung;
 
+import java.util.Arrays;
+
 public class ChosongSearch {
 
 	public static void main(String[] args) {
-
-		String str = convertName("¼Ò´Ù /Ä«½Ã¿ÀÆĞ¼Ç½ºÆ÷Ã÷½Ã°è");
-
-		System.out.println(str);	//¤µ¤§ /¤»¤µ¤·¤½¤µ¤µ¤½¤º¤µ¤¡
-
+		convertName("ì†Œë‹¤/ì¹´ì‹œì˜¤íŒ¨ì…˜ìŠ¤í¬ì¸ ì‹œê³„");
 	}
 
-	//¸ŞÀÎÃÊ¼º°Ë»ö
-	public static String convertName(String str) {
-
-		String chosung = "";
-		
-		for (int i = 0; i < str.length(); i++) {
-			char c = str.charAt(i);
-
-			//ÇÑ±Û°ªÀÎÁö ¾Æ´ÑÁö È®ÀÎ
-			if (c > 44032 && c < 55203) {
-				// ÃÊ¼º°á°ú ³ª¿Â´Ù ¼Ò=>¤µ
-				chosung += direct(c);
-
-			} else {
-				//½ºÆäÀÌ½º ±âÈ£ ¿µ¾î´Â ±×³É ++
-				chosung += c;
-
-			}
-
-		}// end for
-
-		return chosung;
-	}
-
-	//ÃÊ¼º°Ë»ö ¾Ë°í¸®Áò
-	private static String direct(char b) {
-		String chosung = null;
-
-		int first = (b - 44032) / (21 * 28);
-		switch (first) {
-		case 0:
-			chosung = "¤¡";
-			break;
-		case 1:
-			chosung = "¤¢";
-			break;
-		case 2:
-			chosung = "¤¤";
-			break;
-		case 3:
-			chosung = "¤§";
-			break;
-		case 4:
-			chosung = "¤¨";
-			break;
-		case 5:
-			chosung = "¤©";
-			break;
-		case 6:
-			chosung = "¤±";
-			break;
-		case 7:
-			chosung = "¤²";
-			break;
-		case 8:
-			chosung = "¤³";
-			break;
-		case 9:
-			chosung = "¤µ";
-			break;
-		case 10:
-			chosung = "¤¶";
-			break;
-		case 11:
-			chosung = "¤·";
-			break;
-		case 12:
-			chosung = "¤¸";
-			break;
-		case 13:
-			chosung = "¤¹";
-			break;
-		case 14:
-			chosung = "¤º";
-			break;
-		case 15:
-			chosung = "¤»";
-			break;
-		case 16:
-			chosung = "¤¼";
-			break;
-		case 17:
-			chosung = "¤½";
-			break;
-		case 18:
-			chosung = "¤¾";
-			break;
-		default:
-			chosung = String.valueOf(b);
-		}
-		return chosung;
-
-	}
-	
-	
-	
-	//½ºÆäÀÌ½º Ã¼Å©
-	private static int speaceCheck(String name) {
+	public static int speaceCheck(String name) {
 		int spaceCount = 0;
 		for (int i = 0; i < name.length(); i++) {
 			char epName = name.charAt(i);
 			if (epName == ' ') {
-				// System.out.println("¶ç¾î¾²±â °ø¹éÀÔ´Ï´Ù.");
+				System.out.println("ë„ì–´ì“°ê¸° ê³µë°±ì…ë‹ˆë‹¤.");
 				spaceCount++;
 			}
 		}
 		return spaceCount;
 	}
 
+	public static String[] convertName(String name) {
+		/* String rtName = ""; */
+		int spaceCount = speaceCheck(name);
+		String[] rtName = new String[spaceCount + 1];
+		char epName;
+
+
+
+		try {
+			for (int j = 0; j < spaceCount; j++) {
+				String tempString = "";
+				for (int i = 0; i < name.length(); i++) {
+					epName = name.charAt(i);
+//					System.out.println("epName = " + epName);
+
+					if (epName > 44032 && epName < 55203) {
+//						System.out.println(epName + "ëŠ” í•œê¸€ì´ ë§ìŠµë‹ˆë‹¤.");
+						tempString += direct(epName);
+					} else {
+//						System.out.println(epName + "ëŠ” í•œê¸€ì´ ì•„ë‹™ë‹ˆë‹¤");
+						if (epName == ' ') {
+							j++;
+							tempString = "";
+//							System.out.println("j++ ë„ì–´ì“°ê¸° ê³µë°±ì…ë‹ˆë‹¤.");
+						}
+					}
+
+//					System.out.println("tempString = " + tempString);
+					rtName[j] = tempString;
+				}
+			}
+//			System.out.println("[convertName(SearchName)]rtName["+ Arrays.toString(rtName) + "]");
+		} catch (Exception e) {
+//			System.out.println("convertName err: UserBean.convetName(str)");
+		}
+		return rtName;
+	}
+
+	public static String direct(char b) {
+		String chosung = null;
+
+		int first = (b - 44032) / (21 * 28);
+		switch (first) {
+		case 0:
+			chosung = "ã„±";
+			break;
+		case 1:
+			chosung = "ã„²";
+			break;
+		case 2:
+			chosung = "ã„´";
+			break;
+		case 3:
+			chosung = "ã„·";
+			break;
+		case 4:
+			chosung = "ã„¸";
+			break;
+		case 5:
+			chosung = "ã„¹";
+			break;
+		case 6:
+			chosung = "ã…";
+			break;
+		case 7:
+			chosung = "ã…‚";
+			break;
+		case 8:
+			chosung = "ã…ƒ";
+			break;
+		case 9:
+			chosung = "ã……";
+			break;
+		case 10:
+			chosung = "ã…†";
+			break;
+		case 11:
+			chosung = "ã…‡";
+			break;
+		case 12:
+			chosung = "ã…ˆ";
+			break;
+		case 13:
+			chosung = "ã…‰";
+			break;
+		case 14:
+			chosung = "ã…Š";
+			break;
+		case 15:
+			chosung = "ã…‹";
+			break;
+		case 16:
+			chosung = "ã…Œ";
+			break;
+		case 17:
+			chosung = "ã…";
+			break;
+		case 18:
+			chosung = "ã…";
+			break;
+		default:
+			chosung = String.valueOf(b);
+		}
+		System.out.println("chosung = " + chosung);
+		return chosung;
+
+	}
+
 }
-/**
- * 
- * 
-1. ÃÊ¼ºÀº 19ÀÚ·Î 
-¤¡, ¤¢, ¤¤, ¤§, ¤¨, ¤©, ¤±, ¤², ¤³, ¤µ,
-¤¶, ¤·, ¤¸, ¤¹, ¤º, ¤», ¤¼, ¤½, ¤¾
-
-
-2. Áß¼ºÀº 21ÀÚ·Î
-¤¿, ¤À, ¤Á, ¤Â, ¤Ã, ¤Ä, ¤Å, ¤Æ, ¤Ç, ¤È,
-¤É, ¤Ê, ¤Ë, ¤Ì, ¤Í, ¤Î, ¤Ï, ¤Ğ, ¤Ñ, ¤Ò,
-¤Ó
-
-
-3. Á¾¼ºÀº 27ÀÚ·Î
-¤¡, ¤¢, ¤£, ¤¤, ¤¥, ¤¦, ¤§, ¤©, ¤ª, 
-¤«, ¤¬, ¤­, ¤®, ¤¯, ¤°, ¤±, ¤², ¤´, ¤µ, 
-¤¶, ¤·, ¤¸, ¤º, ¤», ¤¼, ¤½, ¤¾
-
-
-< ±ÔÄ¢1>
-1.Áß¼ºÀÌ ¹Ù²î´Â °æ¿ì ÄÚµå°ª Â÷ÀÌ : 28
-2.ÃÊ¼ºÀÌ ¹Ù²î´Â °æ¿ì ÄÚµå°ª Â÷ÀÌ : 588(21*28)
-3. ÇÑ±Û¿¡ ´ëÇÑ Ã¹ ÄÚµå°ª('°¡'ÀÇ ÄÚµå°ª): 44032
-
-<ÀÀ¿ë>
-°¡ - 44032
-±î - 44620
-³ª - 45208
-´Ù - 45796
-µû - 46384
-¶ó - 46972
-¸¶ - 47560
-¹Ù - 48148
-ºü - 48736
-»ç - 49324
-½Î - 49912
-¾Æ - 50500
-ÀÚ - 51088
-Â¥ - 51676
-Â÷ - 52264
-Ä« - 52852
-Å¸ - 53440
-ÆÄ - 54028
-ÇÏ - 54616
-
-ÃÊ¼º: ±ÛÀÚÀÇ ÄÚµå¿¡¼­ 44032¸¦ »©°í, 21*28·Î ³ª´« ¸ò 0 ~ 18
-Áß¼º: ±ÛÀÚÀÇ ÄÚµå¿¡¼­ 44032¸¦ »©°í, 21*28·Î ³ª´« ³ª¸ÓÁö¸¦ ´Ù½Ã 28·Î ³ª´« ¸ò 0 ~ 20
-Á¾¼º: ±ÛÀÚÀÇ ÄÚµå¿¡¼­ 44032¸¦ »©°í, 21*28·Î ³ª´« ³ª¸ÓÁö¸¦ ´Ù½Ã 28·Î ³ª´« ³ª¸ÓÁö 0 ~ 27
-*/

@@ -2,28 +2,31 @@ package chosung;
 
 public class Product {
 	
-	Product(String no, String name, long a, long b){
-		this.no=no;
-		this.name=name;
-		this.a=a;
-		this.b=b;
-	
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return super.toString();
 	}
-	String no;
-	String name;
+	Product(String productNo, String productName, long a, long b){
+		this.productName=productName;
+	}
+	String productNo;
+	String productName;
 	long a;
 	long b;
-	public String getNo() {
-		return no;
+	
+	
+	public String getProductNo() {
+		return productNo;
 	}
-	public void setNo(String no) {
-		this.no = no;
+	public void setProductNo(String productNo) {
+		this.productNo = productNo;
 	}
-	public String getName() {
-		return name;
+	public String getProductName() {
+		return productName;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setProductName(String productName) {
+		this.productName = productName;
 	}
 	public long getA() {
 		return a;
@@ -37,5 +40,6 @@ public class Product {
 	public void setB(long b) {
 		this.b = b;
 	}
+	
 	
 }
