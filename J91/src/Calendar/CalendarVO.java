@@ -2,15 +2,15 @@ package Calendar;
 
 public class CalendarVO {
 	
-	//³âµµ
+	//ë…„ë„
 	private int year;
-	//´Ş
+	//ë‹¬
 	private int month;
-	//6ÀÏ 5ÀÏ
+	//6ì¼ 5ì¼
 	private int date;
-	//È­¿äÀÏÀº 3 ¼ıÀÚ·Î...
+	//í™”ìš”ì¼ì€ 3 ìˆ«ìë¡œ...
 	private int day_of_week;
-	//¼ıÀÚ·Î ³ª¿À´Â ¿äÀÏÀ» ½ÇÁ¦ ¿äÀÏ·Î ¼¼ÆÃ 3->È­¿äÀÏ
+	//ìˆ«ìë¡œ ë‚˜ì˜¤ëŠ” ìš”ì¼ì„ ì‹¤ì œ ìš”ì¼ë¡œ ì„¸íŒ… 3->í™”ìš”ì¼
 	private String yoil;
 
 	public int getDay_of_week() {

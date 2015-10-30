@@ -9,40 +9,40 @@ public class CalendarTest {
 		
 //		t.month();
 		
-		ArrayList<CalendarVO> list = t.month(1982, 10);// 10¿ù 6ÀÏÀº ¼ö¿äÀÏÀÌ±¸¸¸
+		ArrayList<CalendarVO> list = t.month(1982, 10);// 10ì›” 6ì¼ì€ ìˆ˜ìš”ì¼ì´êµ¬ë§Œ
 
 		t.monthPrint(list);
 	}
 	
 	Calendar c = Calendar.getInstance();
 
-	// ´ŞÀÇ ¸¶Áö¸·³¯ ex 31
+	// ë‹¬ì˜ ë§ˆì§€ë§‰ë‚  ex 31
 	int lastDate;
 
-	// ¿À´ÃÀº ¹«½¼¿äÀÏÀÎ°¡¿ä? 3=>È­
+	// ì˜¤ëŠ˜ì€ ë¬´ìŠ¨ìš”ì¼ì¸ê°€ìš”? 3=>í™”
 	int day_of_week;
 
-	// ¸ñ¿äÀÏ È­¿äÀÏ ¼ö¿äÀÏ ¼¼ÆÃ~
-	String[] DAY_OF_WEEK = { "", "ÀÏ", "¿ù", "È­", "¼ö", "¸ñ", "±İ", "Åä" };
+	// ëª©ìš”ì¼ í™”ìš”ì¼ ìˆ˜ìš”ì¼ ì„¸íŒ…~
+	String[] DAY_OF_WEEK = { "", "ì¼", "ì›”", "í™”", "ìˆ˜", "ëª©", "ê¸ˆ", "í† " };
 
-	//Æ¯Á¤ ³â ´Ş ´Ş·Â
+	//íŠ¹ì • ë…„ ë‹¬ ë‹¬ë ¥
 	public ArrayList<CalendarVO> month(int year, int month) {
 		
-		//´Ş·Â ¸®½ºÆ®
+		//ë‹¬ë ¥ ë¦¬ìŠ¤íŠ¸
 		ArrayList<CalendarVO> list = new ArrayList<CalendarVO>();
 
 		CalendarVO vo;
 
-		// Calendar¿¡¼­ month´Â -1·Î ÀúÀå µÊÀ¸·Î -1ÇÔ
+		// Calendarì—ì„œ monthëŠ” -1ë¡œ ì €ì¥ ë¨ìœ¼ë¡œ -1í•¨
 		int calendarMonth = month - 1;
 
-		// ´Ş·Â ³¯Â¥ ÃÊ±â ¼¼ÆÃ
+		// ë‹¬ë ¥ ë‚ ì§œ ì´ˆê¸° ì„¸íŒ…
 		c.set(year, calendarMonth, 1);
 
-		// ±×´ŞÀÇ ¸¶Áö¸·³¯Â¥¸¦ ex 31ÀÏ 28ÀÏ
+		// ê·¸ë‹¬ì˜ ë§ˆì§€ë§‰ë‚ ì§œë¥¼ ex 31ì¼ 28ì¼
 		lastDate = c.getActualMaximum(Calendar.DATE);
 
-		// ±×´ŞÀÇ ¸¶Áö¸·³¯±îÁö for¹®µ¹¸²
+		// ê·¸ë‹¬ì˜ ë§ˆì§€ë§‰ë‚ ê¹Œì§€ forë¬¸ëŒë¦¼
 		for (int i = 0; i < lastDate; i++) {
 			
 			c.set(year, calendarMonth, i + 1);
@@ -59,116 +59,116 @@ public class CalendarTest {
 		}
 //		System.out.println(list);
 		return list;
-	}//Æ¯Á¤ ³â ´Ş ´Ş·Â
+	}//íŠ¹ì • ë…„ ë‹¬ ë‹¬ë ¥
 
 
-	//ÇÁ¸°Æ®
+	//í”„ë¦°íŠ¸
 	public void monthPrint(ArrayList<CalendarVO> monthList) {
 
 		ArrayList<CalendarVO> list = monthList;
 
-		// ½ÃÀÛ³¯Â¥ º¸¿©ÁÖ±â..
+		// ì‹œì‘ë‚ ì§œ ë³´ì—¬ì£¼ê¸°..
 		System.out.println(list.get(0).toString());
 
-		System.out.println("ÀÏ ¿ù È­ ¼ö ¸ñ ±İ Åä");
+		System.out.println("ì¼ ì›” í™” ìˆ˜ ëª© ê¸ˆ í† ");
 
-		// ½ÃÀÛ³¯Â¥ ¿äÀÏ ¾Ë±âÀ§ÇØ¼­
+		// ì‹œì‘ë‚ ì§œ ìš”ì¼ ì•Œê¸°ìœ„í•´ì„œ
 		day_of_week = list.get(0).getDay_of_week();
 
-		// ½ÃÀÛ ³¯ À§Ä¡ Àâ±â À§ÇØ¼­ ÀÌ»ÚÀåÇÏ°Ô
+		// ì‹œì‘ ë‚  ìœ„ì¹˜ ì¡ê¸° ìœ„í•´ì„œ ì´ì˜ì¥í•˜ê²Œ
 		for (int i = 0; i < day_of_week - 1; i++) {
 			// System.out.printf("%s","   ");
 			System.out.print("__!");
 		}
 
-		// ´ŞÀÇ ¸¶Áö¸·³¯Â¥ ¾Ë±â À§ÇØ¼­ ex 31
+		// ë‹¬ì˜ ë§ˆì§€ë§‰ë‚ ì§œ ì•Œê¸° ìœ„í•´ì„œ ex 31
 		lastDate = list.get(list.size() - 1).getDate();
 
 		for (int i = 0; i < lastDate; i++) {
 
-			// 10ÀÏ ¹Ì¸¸Àº ½ºÆäÀÌ½º ÇÏ³ª ¶Ù¾î¼­ ÀÌ»Ú°Ô ¤¾¤¾
+			// 10ì¼ ë¯¸ë§Œì€ ìŠ¤í˜ì´ìŠ¤ í•˜ë‚˜ ë›°ì–´ì„œ ì´ì˜ê²Œ ã…ã…
 			if (list.get(i).getDate() < 10) {
 				System.out.print(" ");
 			}
 
-			// ¿äÀÏ 1, 2, 3, 4, Âï±â
+			// ìš”ì¼ 1, 2, 3, 4, ì°ê¸°
 			System.out.print(list.get(i).getDate() + " ");
 
-			// Åä¿äÀÏÀÌ¸é ÇÑÄ­ ¶Ù±â
-			if (list.get(i).getYoil().equals("Åä")) {
+			// í† ìš”ì¼ì´ë©´ í•œì¹¸ ë›°ê¸°
+			if (list.get(i).getYoil().equals("í† ")) {
 				System.out.println();
 			}
 		}//end for
-	}//ÇÁ¸°Æ®
+	}//í”„ë¦°íŠ¸
 
-	// ÀÌ¹ø´Ş ´Ş·Â
+	// ì´ë²ˆë‹¬ ë‹¬ë ¥
 	public void month() {
-		// ³âµµ
+		// ë…„ë„
 		int year = c.get(Calendar.YEAR);
-		// ´Ş 0¿ù ºÎÅÍ ½ÃÀÛ
+		// ë‹¬ 0ì›” ë¶€í„° ì‹œì‘
 		int month = c.get(Calendar.MONTH);
-		// ³¯Â¥ 1ÀÏ 2ÀÏ 3ÀÏ
+		// ë‚ ì§œ 1ì¼ 2ì¼ 3ì¼
 		int date = c.get(Calendar.DATE);
-		// ÀÌ¹ø´Ş ¸¶Áö¸·³¯Â¥ 2¿ùÀº 28ÀÏ 10¿ùÀº 31ÀÏ
+		// ì´ë²ˆë‹¬ ë§ˆì§€ë§‰ë‚ ì§œ 2ì›”ì€ 28ì¼ 10ì›”ì€ 31ì¼
 		int lastDate = c.getActualMaximum(Calendar.DATE);
-		// ¿À´ÃÀº ¹«½¼¿äÀÏÀÎ°¡¿ä? 3=>È­
+		// ì˜¤ëŠ˜ì€ ë¬´ìŠ¨ìš”ì¼ì¸ê°€ìš”? 3=>í™”
 		int day_of_week = c.get(Calendar.DAY_OF_WEEK);
-		// ¸ñ¿äÀÏ È­¿äÀÏ ¼ö¿äÀÏ ¼¼ÆÃ~
-		String[] DAY_OF_WEEK = { "", "ÀÏ", "¿ù", "È­", "¼ö", "¸ñ", "±İ", "Åä" };
+		// ëª©ìš”ì¼ í™”ìš”ì¼ ìˆ˜ìš”ì¼ ì„¸íŒ…~
+		String[] DAY_OF_WEEK = { "", "ì¼", "ì›”", "í™”", "ìˆ˜", "ëª©", "ê¸ˆ", "í† " };
 		String yoil = DAY_OF_WEEK[c.get(Calendar.DAY_OF_WEEK)];
 
-		// ¿À´Ã
+		// ì˜¤ëŠ˜
 		System.out.println(year + ":" + (month + 1) + ":" + date + ":" + yoil);
 
-		System.out.println("ÀÏ ¿ù È­ ¼ö ¸ñ ±İ Åä");
+		System.out.println("ì¼ ì›” í™” ìˆ˜ ëª© ê¸ˆ í† ");
 
 		c.set(year, month, 1);
 
 		day_of_week = c.get(Calendar.DAY_OF_WEEK);
 		lastDate = c.getActualMaximum(Calendar.DATE);
 
-		// ½ÃÀÛ ³¯ À§Ä¡ Àâ±â À§ÇØ¼­ ÀÌ»ÚÀåÇÏ°Ô
+		// ì‹œì‘ ë‚  ìœ„ì¹˜ ì¡ê¸° ìœ„í•´ì„œ ì´ì˜ì¥í•˜ê²Œ
 		for (int i = 0; i < day_of_week - 1; i++) {
 			// System.out.printf("%s","   ");
 			System.out.print("__!");
 		}
-		// 3ÀÌ´Ï±ñ È­¿äÀÏÀÌ¸é 1ÀÏ 2¿ù 3È­
+		// 3ì´ë‹ˆê¹ í™”ìš”ì¼ì´ë©´ 1ì¼ 2ì›” 3í™”
 		for (int i = 0; i < lastDate; i++) {
 
 			c.set(year, month, i + 1);
 
-			// 10ÀÏ ¹Ì¸¸Àº ½ºÆäÀÌ½º ÇÏ³ª ¶Ù¾î¼­ ÀÌ»Ú°Ô ¤¾¤¾
+			// 10ì¼ ë¯¸ë§Œì€ ìŠ¤í˜ì´ìŠ¤ í•˜ë‚˜ ë›°ì–´ì„œ ì´ì˜ê²Œ ã…ã…
 			if (c.get(Calendar.DATE) < 10) {
 				System.out.print(" ");
 			}
 
-			// ¿äÀÏ
+			// ìš”ì¼
 			System.out.print(c.get(Calendar.DATE) + " ");
 
-			// ³¯Â¥ »õ·Î ¼¼ÆÃ
+			// ë‚ ì§œ ìƒˆë¡œ ì„¸íŒ…
 			yoil = DAY_OF_WEEK[c.get(Calendar.DAY_OF_WEEK)];
 
-			// Åä¿äÀÏÀÌ¸é ÇÑÄ­ ¶Ù±â
-			if (yoil.equals("Åä")) {
+			// í† ìš”ì¼ì´ë©´ í•œì¹¸ ë›°ê¸°
+			if (yoil.equals("í† ")) {
 				System.out.println();
 			}
 
 		}
-	}// ÀÌ¹ø´Ş ¼¼ÆÃ
+	}// ì´ë²ˆë‹¬ ì„¸íŒ…
 }
 
-// //³âµµ
+// //ë…„ë„
 // int year = c.get(Calendar.YEAR);
-// //´Ş 0¿ù ºÎÅÍ ½ÃÀÛ
+// //ë‹¬ 0ì›” ë¶€í„° ì‹œì‘
 // int month = c.get(Calendar.MONTH);
-// //³¯Â¥ 1ÀÏ 2ÀÏ 3ÀÏ
+// //ë‚ ì§œ 1ì¼ 2ì¼ 3ì¼
 // int date = c.get(Calendar.DATE);
-// //ÀÌ¹ø´Ş ¸¶Áö¸·³¯Â¥ 2¿ùÀº 28ÀÏ 10¿ùÀº 31ÀÏ
+// //ì´ë²ˆë‹¬ ë§ˆì§€ë§‰ë‚ ì§œ 2ì›”ì€ 28ì¼ 10ì›”ì€ 31ì¼
 // int lastDate = c.getActualMaximum(Calendar.DATE);
-// //¿À´ÃÀº ¹«½¼¿äÀÏÀÎ°¡¿ä? 3=>È­
+// //ì˜¤ëŠ˜ì€ ë¬´ìŠ¨ìš”ì¼ì¸ê°€ìš”? 3=>í™”
 // int day_of_week = c.get(Calendar.DAY_OF_WEEK);
-// //¸ñ¿äÀÏ È­¿äÀÏ ¼ö¿äÀÏ ¼¼ÆÃ~
-// String[] DAY_OF_WEEK = {"", "ÀÏ", "¿ù", "È­", "¼ö", "¸ñ", "±İ", "Åä"};
+// //ëª©ìš”ì¼ í™”ìš”ì¼ ìˆ˜ìš”ì¼ ì„¸íŒ…~
+// String[] DAY_OF_WEEK = {"", "ì¼", "ì›”", "í™”", "ìˆ˜", "ëª©", "ê¸ˆ", "í† "};
 // String yoil = DAY_OF_WEEK[c.get(Calendar.DAY_OF_WEEK)];
 
 //
