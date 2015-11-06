@@ -1,3 +1,5 @@
+package six;
+
 class Exercise6_19
 {
 	public static void change(String str) {
